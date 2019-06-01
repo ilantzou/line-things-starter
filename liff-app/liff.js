@@ -58,7 +58,7 @@ function uiToggleStateButton(pressed) {
 
     if (pressed) {
         el.classList.add("Pressed");
-        el.innerText = "Pressed";
+        el.innerText = "按下";
     } else {
         el.classList.remove("pressed");
         el.innerText = "鬆開";
