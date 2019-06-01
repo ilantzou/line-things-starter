@@ -1,8 +1,8 @@
 // User service UUID: Change this to your generated service UUID
 const USER_SERVICE_UUID         = '61bedb44-e14e-4df8-8846-d85413ebfba7'; // LED, Button
 // User service characteristics
-const WRITE_CHARACTERISTIC_UUID   = 'E9062E71-9E62-4BC6-B0D3-35CDCD9B027B';
-const NOTIFY_CHARACTERISTIC_UUID   = '62FBD229-6EDD-4D1A-B554-5C4E1BB29169';
+const LED_CHARACTERISTIC_UUID   = 'E9062E71-9E62-4BC6-B0D3-35CDCD9B027B';
+const BTN_CHARACTERISTIC_UUID   = '62FBD229-6EDD-4D1A-B554-5C4E1BB29169';
 
 // PSDI Service UUID: Fixed value for Developer Trial
 const PSDI_SERVICE_UUID         = 'e625601e-9e55-4597-a598-76018a0d293d'; // Device ID
@@ -57,11 +57,11 @@ function uiToggleStateButton(pressed) {
     const el = document.getElementById("btn-state");
 
     if (pressed) {
-        el.classList.add("P");
-        el.innerText = "P";
+        el.classList.add("pressed");
+        el.innerText = "Pressed";
     } else {
-        el.classList.remove("P");
-        el.innerText = "R";
+        el.classList.remove("pressed");
+        el.innerText = "Released";
     }
 }
 
@@ -209,14 +209,14 @@ function liffConnectToDevice(device) {
 
 function liffGetUserService(service) {
     // Button pressed state
-    service.getCharacteristic(NOTIFY_CHARACTERISTIC_UUID).then(characteristic => {
+    service.getCharacteristic(BTN_CHARACTERISTIC_UUID).then(characteristic => {
         liffGetButtonStateCharacteristic(characteristic);
     }).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
 
     // Toggle LED
-    service.getCharacteristic(WRITE_CHARACTERISTIC_UUID).then(characteristic => {
+    service.getCharacteristic(LED_CHARACTERISTIC_UUID).then(characteristic => {
         window.ledCharacteristic = characteristic;
 
         // Switch off by default
