@@ -57,11 +57,11 @@ function uiToggleStateButton(pressed) {
     const el = document.getElementById("btn-state");
 
     if (pressed) {
-        el.classList.add("pressed");
+        el.classList.add("Pressed");
         el.innerText = "Pressed";
     } else {
         el.classList.remove("pressed");
-        el.innerText = "Released";
+        el.innerText = "鬆開";
     }
 }
 
