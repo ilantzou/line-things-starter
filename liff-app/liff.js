@@ -57,11 +57,11 @@ function uiToggleStateButton(pressed) {
     const el = document.getElementById("btn-state");
 
     if (pressed) {
-        el.classList.add("按下");
-        el.innerText = "按下";
+        el.classList.add("P");
+        el.innerText = "P";
     } else {
-        el.classList.remove("按下");
-        el.innerText = "鬆開";
+        el.classList.remove("P");
+        el.innerText = "R";
     }
 }
 
