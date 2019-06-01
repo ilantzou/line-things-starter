@@ -59,17 +59,8 @@ function uiToggleStateButton(pressed) {
     if (pressed) {
         el.classList.add("按下");
         el.innerText = "按下";
-       liff.sendMessages([
-        {
-            "type": "text",
-            "text": "天氣",
-        }, 
-        ]).then(function () {
-            window.alert("按鈕被按下");
-            //liff.closeWindow();
-        }).catch(function (error) {
-            window.alert("傳送失敗錯誤碼：" + error);
-        });
+        window.alert("按鈕被按下");
+
     } else {
         el.classList.remove("按下");
         el.innerText = "鬆開";
