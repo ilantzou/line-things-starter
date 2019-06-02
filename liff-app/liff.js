@@ -18,6 +18,8 @@ let clickCount = 0;
 
 window.onload = () => {
     initializeApp();
+    window.displayName = ''
+    window.pictureUrl = ''
 };
 
 // ----------------- //
@@ -137,6 +139,15 @@ function initializeLiff() {
         liffCheckAvailablityAndDo(() => liffRequestDevice());
     }).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
+    });
+    liff.getProfile().then(profile => {
+        window.displayName = profile.displayName
+        window.pictureUrl = profile.pictureUrl
+        document.getElementById("userPic").src = window.pictureUrl;
+        document.getElementById("userPic").hidden = false;
+        document.getElementById("userName").innerHTML = window.displayName;
+    }).catch((err) => {
+        console.log('error', err);
     });
 }
 
