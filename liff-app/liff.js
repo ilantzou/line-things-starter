@@ -107,6 +107,7 @@ function uiToggleLoadingAnimation(isLoading) {
     }
 }
 
+
 function uiStatusError(message, showLoadingAnimation) {
     uiToggleLoadingAnimation(showLoadingAnimation);
 
